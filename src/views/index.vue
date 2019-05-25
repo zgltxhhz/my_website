@@ -1,32 +1,8 @@
 <template>
 	<div class="index">
-		<nav class="navbar navbar-default navbar-fixed-top" :style="nav_style">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" 
-						data-toggle="collapse" 
-						data-target="#bs-example-navbar-collapse-1" 
-						aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				    </button>
-					<a class="navbar-brand" href="#">logo</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li>首页</li>
-						<li>学习</li>
-						<li>追番</li>
-						<li>login</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
 		
 		<div class="bg-image">
-			<img src="../assets/images/home-bg.jpg" alt="头部背景图片" title="头部背景图片"></img>
+			<img src="../assets/images/banner.jpg" alt="头部背景图片" title="头部背景图片"></img>
 		</div>
 		
 		<div class="jumbotron">
@@ -47,7 +23,7 @@
 		</div>
 		
 		<div class="row abbreviation">
-			<div class="col-sm-6 col-md-6" v-for="(item, index) in thumbnail_data" :key="index">
+			<div class="col-sm-12 col-md-6" v-for="(item, index) in thumbnail_data" :key="index">
 				<div class="thumbnail">
 					<img :src="item.imgUrl"></img>
 					<!--<div class="tits">111</div>-->
@@ -59,11 +35,17 @@
 			</div>
 		</div>
 		
-		
-		
-
-		
-		
+		<div class="bottom-explain">
+			<h2>即使VEROEROS LOREM</h2>
+			<div class="explanation">
+				由于大部分的时间，因此，Phasellus交流augue笔者
+				accumsan拉克丝一个NIBH commodo Pellentesque DUI 
+				此书签。
+			</div>
+			<button type="button" class="btn btn-default btn-group-lg">入门</button>
+			
+			<div class="hr"></div>
+		</div>
 		
 	</div>
 </template>
@@ -74,10 +56,9 @@
 	import img3 from '../assets/images/pic03.jpg'
 	import img4 from '../assets/images/pic04.jpg'
 	export default {
-		name: 'HelloWorld',
+		name: 'index',
 		data() {
 			return {
-				nav_style: 'opacity: 1;',
 				thumbnail_data: [
 					{
 						imgUrl: img1,
@@ -112,18 +93,6 @@
 	.index {
 		background: #f4f4f4;
 		padding-bottom: 80px;
-		.navbar{
-			transition: all 1s;
-			opacity: 1;
-			li{
-				width: 60px;
-				min-height: 50px;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: center;
-			}
-		}
 		.bg-image {
 			width: 100%;
 			img {
@@ -157,6 +126,7 @@
 				}
 				.btn-group{
 					margin: 40px 0 0;
+					transition: all 1s;
 				}
 			}
 		}
@@ -198,13 +168,47 @@
 				}
 			}
 		}
-	}
-	/*.title-nav{
-		min-height: 120px;
-	}
-	@media only screen and (max-width: 792px) {
-		.title-nav{
-			min-height: 50px;
+		.bottom-explain{
+			width: 30%;
+			margin: 5em auto;
+			text-align: center;
+			.explanation{
+				font-size: 1.3em;
+				margin-top: 3rem;
+				line-height: 2rem;
+				color: #666;
+				font-family: inherit;
+			}
+			.btn{
+				margin-top: 2rem;
+				padding: 1rem 3rem;
+			}
+			.hr{
+				width: 8rem;
+				height: 4px;
+				background: #666;
+				margin: 6rem auto;
+				border-radius: 15px;
+			}
 		}
-	}*/
+	}
+	@media only screen and (max-width: 1170px) {
+		.index{
+			.bottom-explain{
+				width: 60%;
+			}
+		}	
+	}
+	@media only screen and (max-width: 970px) {
+		.index{
+			.jumbotron{
+				.content{
+					width: 100%;
+				}
+			}
+			.bottom-explain{
+				width: 80%;
+			}
+		}
+	}
 </style>
