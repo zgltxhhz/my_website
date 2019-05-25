@@ -3,9 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import $ from 'jquery'
+import '@/assets/bootstrap/css/bootstrap.min.css'
+import '@/assets/bootstrap/js/bootstrap.min.js'
+//import BootstrapVue from 'bootstrap-vue'
+//import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
-
+//Vue.use(BootstrapVue)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
