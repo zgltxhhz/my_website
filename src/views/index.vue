@@ -91,8 +91,6 @@
 
 <style scoped lang="scss">
 	.index {
-		background: #f4f4f4;
-		padding-bottom: 80px;
 		.bg-image {
 			width: 100%;
 			img {

@@ -26,6 +26,9 @@
 			</div>
 		</nav>
     <router-view/>
+    <footer>
+    	这里是域名信息
+    </footer>
   </div>
 </template>
 
@@ -34,7 +37,7 @@ export default {
 		name: 'app',
 		data() {
 			return {
-				nav_style: 'opacity: 0;',
+				nav_style: 'top: -50px'
 			}
 		},
 		created(){},
@@ -44,7 +47,7 @@ export default {
 		methods:{
 			handleScroll(){
 				let scroll = document.documentElement.scrollTop
-				scroll >100? this.nav_style = 'opacity: 1;' : this.nav_style = 'opacity: 0;'
+				scroll >100? this.nav_style = 'top: 0' : this.nav_style = 'top: -50px'
 			}
 		}
 	}
@@ -52,6 +55,9 @@ export default {
 
 <style lang="scss" scoped>
 	#app{
+		background: #f4f4f4;
+		padding-bottom: 1rem;
+		min-height: calc(100vh - 1rem);
 		.navbar{
 				transition: all .5s;
 				/*background: #393D49;*/
@@ -65,6 +71,11 @@ export default {
 					align-items: center;
 					justify-content: center;
 				}
+			}
+			footer{
+				width: 100%;
+				margin: 0 auto;
+				text-align: center;
 			}
 		}
 </style>
