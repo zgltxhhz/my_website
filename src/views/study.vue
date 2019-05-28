@@ -56,8 +56,10 @@
 				]
 			}
 		},
-		created(){},
-		mounted() {},
+		created(){
+			document.documentElement.scrollTop = 0
+		},
+		mounted(){},
 		methods:{
 			change_nav(e){
 				// tab切换

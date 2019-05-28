@@ -99,32 +99,34 @@
 		}
 		.jumbotron{
 			width: 85%;
-			margin: 80px auto 0;
+			margin: 5rem auto 0;
 			background: #fff;
-			
-			.content{
-				width: 60%;
-				padding: 40px 0 20px;
+			.container{
 				margin: 0 auto;
-				text-align: center;
-				.title-logo{
-					font-size: 120px;
-				}
-				h2{
-					margin: 40px 0 60px;
-				}
-				.texts{
-					width: 80%;
+				.content{
+					width: 60%;
+					padding: 40px 0 20px;
 					margin: 0 auto;
 					text-align: center;
-					color: #999;
-					font-family: inherit;
-					line-height: 30px;
-					font-size: 1.4em;
-				}
-				.btn-group{
-					margin: 40px 0 0;
-					transition: all 1s;
+					.title-logo{
+						font-size: 120px;
+					}
+					h2{
+						margin: 40px 0 60px;
+					}
+					.texts{
+						width: 80%;
+						margin: 0 auto;
+						text-align: center;
+						color: #999;
+						font-family: inherit;
+						line-height: 30px;
+						font-size: 1.4em;
+					}
+					.btn-group{
+						margin: 40px 0 0;
+						transition: all 1s;
+					}
 				}
 			}
 		}
@@ -200,12 +202,52 @@
 	@media only screen and (max-width: 970px) {
 		.index{
 			.jumbotron{
-				.content{
-					width: 100%;
+				.container{
+					.content{
+						width: 100%;
+					}
 				}
 			}
 			.bottom-explain{
 				width: 80%;
+			}
+		}
+	}
+	@media only screen and (max-width: 430px) {
+		.index{
+			.jumbotron{
+				width: 90%;
+				margin: 3rem auto 0;
+				.container{
+					.content{
+						width: 100%;
+						padding: 10px 0 0;
+						.title-logo{
+							font-size: 80px;	
+						}
+						h2{
+							margin: 20px 0 30px;
+						}
+						.texts{
+							width: 90%;
+							font-size: 1.6rem;
+							line-height: 25px;
+						}
+					}
+				}
+			}
+			.abbreviation{
+				width: 95%;
+				margin: 3rem auto 0;
+				.thumbnail{
+					.caption{
+						width: 90%;
+						padding: 2rem 0;
+						p{
+							font-size: 1.6rem;
+						}
+					}
+				}
 			}
 		}
 	}
