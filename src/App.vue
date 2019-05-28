@@ -47,7 +47,7 @@ export default {
 		methods:{
 			handleScroll(){
 				let scroll = document.documentElement.scrollTop
-				scroll >100? this.nav_style = 'top: 0' : this.nav_style = 'top: -50px'
+				scroll >100? this.nav_style = 'top: 0' : this.nav_style = 'top: -50px;box-shadow: 0 0 0 #fff;'
 			}
 		}
 	}
@@ -60,9 +60,7 @@ export default {
 		min-height: calc(100vh - 1rem);
 		.navbar{
 				transition: all .5s;
-				/*background: #393D49;*/
-				/*background: rgba(0,0,0,.8);*/
-				/*color: #fff;*/
+				box-shadow: 0px 1px 20px #c2c2c2;
 				li{
 					width: 60px;
 					min-height: 50px;
