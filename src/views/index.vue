@@ -2,7 +2,7 @@
 	<div class="index">
 		
 		<div class="bg-image">
-			<img src="../assets/images/banner.jpg" alt="头部背景图片" title="头部背景图片"></img>
+			<img src="../assets/images/banner.jpg" alt="头部背景图片" title="头部背景图片" />
 		</div>
 		
 		<div class="jumbotron">
@@ -25,7 +25,7 @@
 		<div class="row abbreviation">
 			<div class="col-sm-12 col-md-6" v-for="(item, index) in thumbnail_data" :key="index">
 				<div class="thumbnail">
-					<img :src="item.imgUrl"></img>
+					<img :src="item.imgUrl" />
 					<!--<div class="tits">111</div>-->
 				    <div class="caption">
 				        <p>{{item.dec}}</p>
