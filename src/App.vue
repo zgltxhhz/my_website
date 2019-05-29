@@ -25,13 +25,17 @@
 			</div>
 		</nav> -->
 		<nav class="head-nav" :style="nav_style">
-			<div class="gao-logo"></div>
+			<div class="gao-logo">
+				<span>这里是logo</span>
+			</div>
 			<div class="gao-link">
 				<div class="gao-btn">
-					111
+						<span></span>
+						<span></span>
+						<span></span>
 				</div>
 				<div class="gao-nav">
-					222
+					导航
 				</div>
 			</div>
 		</nav>
@@ -95,6 +99,12 @@ export default {
 				.gao-logo{
 					width: 40%;
 					height: 100%;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					span{
+						margin-left: 3rem;
+					}
 				}
 				.gao-link{
 					width: 60%;
@@ -102,6 +112,27 @@ export default {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
+					position: relative;
+					.gao-btn{
+						position: absolute;
+						right: 3rem;
+						width: 3.5rem;
+						height: 3rem;
+						border: 1px solid #ccc;
+						border-radius: 5px;
+						transition: all 0;
+						span{
+							display: block;
+							width: 70%;
+							border-top: .7px solid red;
+							border-bottom: .7px solid red;
+							margin: calc(0.7rem - 1.4px) auto 0;
+						}
+					}
+					.gao-nav{
+						position: absolute;
+						right: 3rem;
+					}
 					@media only screen and (max-width: 782px) {
 						.gao-btn{
 							display: block;
