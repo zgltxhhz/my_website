@@ -7,6 +7,7 @@ import Watching from '@/views/watching'
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: 'gao-active',
   routes: [
     {
       path: '/',

@@ -36,28 +36,16 @@
 				</div>
 				<div class="gao-nav">
 					<div class="gao-title-menu">
-						<div class="gao-title" 
-								 v-for="(item, index) in menuData" 
-								 :key="item.id"
-								 @click="change_color(index)"
-						>
-							<router-link :to="item.route">
-								<span :class="item.className">{{item.menu}}</span>
-							</router-link>
+						<div class="gao-title" v-for="item in menuData" :key="item.id">
+							<router-link :to="item.route">{{item.menu}}</router-link>
 						</div>
 					</div>
 				</div>
 			</div>
 		</nav>
 		<div class="gao-menu animated fadeInDown" v-show="show_menu">
-			<div class="gao-title"
-					 v-for="(item, index) in menuData" 
-					 :key="item.id"
-					 @click="change_color(index)"
-			>
-				<router-link :to="item.route">
-					<span :class="item.className">{{item.menu}}</span>
-				</router-link>
+			<div class="gao-title" v-for="item in menuData" :key="item.id">
+				<router-link :to="item.route">{{item.menu}}</router-link>
 			</div>
 		</div>
     <router-view/>
@@ -74,15 +62,16 @@ export default {
 			return {
 				nav_style: 'top: -5rem',
 				menuData: [
-					{id: 1, menu: '首页', className: 'gao-choose', route: '/index'},
-					{id: 2, menu: '学习', className: '', route: '/study'},
-					{id: 3, menu: '追番', className: '', route: '/watching'}
+					{id: 1, menu: '首页', route: '/index'},
+					{id: 2, menu: '学习', route: '/study'},
+					{id: 3, menu: '追番', route: '/watching'}
 				],
 				show_menu: false
 			}
 		},
 		created(){},
 		mounted() {
+			console.log(111)
 			window.addEventListener('scroll', this.handleScroll)
 		},
 		methods:{
@@ -100,11 +89,6 @@ export default {
 			controlMenu() {
 				this.show_menu = !this.show_menu
 			},
-			// 点击选中导航
-			change_color(index){
-				this.menuData.forEach(v=>{v.className = ''})
-				this.menuData[index].className = 'gao-choose'
-			}
 		}
 	}
 </script>
@@ -190,8 +174,8 @@ export default {
 									color: #000;
 								}
 							}
-							.gao-choose{
-								color: rgb(21, 116, 241);
+							.gao-active{
+								color: rgb(21, 116, 241) !important;
 							}
 						}
 					}
@@ -218,12 +202,12 @@ export default {
 				background:  linear-gradient(#fff, #f2f2f2);;
 				position: fixed;
 				top: calc(5rem - 1px);
-				border-top: 1px solid #ccc;
+				border-top: 1px solid #e8e8e8;
 				z-index: 999;
 				padding: 1rem 0;
 				transition: all 1s;
 				overflow: hidden;
-				box-shadow: 0px 5px 10px #d2d2d2;
+				box-shadow: 0px 7px 10px #d2d2d2;
 				.gao-title{
 					width: 100%;
 					padding: 0.8rem 0;
@@ -235,8 +219,8 @@ export default {
 						color: #000;
 					}
 				}
-				.gao-choose{
-					color: rgb(21, 116, 241);
+				.gao-active{
+					color: rgb(21, 116, 241) !important;
 				}
 				.gao-title:last-child{
 					border-bottom: 0px solid #ccc;

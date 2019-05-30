@@ -3,7 +3,7 @@
 		<div class="show-title">
 			<!--<div class="classification">-->
 				
-				<div class="row visible-md-block visible-lg-block">
+				<div class="row visible-md-block visible-lg-block show-top">
 				  	<div class="col-md-6">
 				  		<ul>
 							<li v-for="(item, index) in titleData" :key="index">
@@ -75,7 +75,7 @@
 		.show-title{
 			width: 100%;
 			background: #fff;
-			.row{
+			.show-top{
 				margin: 0;
 				.col-md-6{
 					min-height: 5rem;
@@ -132,6 +132,11 @@
 					padding: 0 2rem;
 				}
 			}
+			// @media only screen and( max-width: 792px) {
+			// 	.show-top{
+			// 		padding-bottom: 2rem;
+			// 	}
+			// }
 			/*.classification{*/
 				/*width: 80%;
 				margin: 0 auto;
