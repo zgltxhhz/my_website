@@ -29,16 +29,37 @@
 				<span>这里是logo</span>
 			</div>
 			<div class="gao-link">
-				<div class="gao-btn">
+				<div class="gao-btn" @click="controlMenu">
 						<span></span>
 						<span></span>
 						<span></span>
 				</div>
 				<div class="gao-nav">
-					导航
+					<div class="gao-title-menu">
+						<div class="gao-title" 
+								 v-for="(item, index) in menuData" 
+								 :key="item.id"
+								 @click="change_color(index)"
+						>
+							<router-link :to="item.route">
+								<span :class="item.className">{{item.menu}}</span>
+							</router-link>
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
+		<div class="gao-menu animated fadeInDown" v-show="show_menu">
+			<div class="gao-title"
+					 v-for="(item, index) in menuData" 
+					 :key="item.id"
+					 @click="change_color(index)"
+			>
+				<router-link :to="item.route">
+					<span :class="item.className">{{item.menu}}</span>
+				</router-link>
+			</div>
+		</div>
     <router-view/>
     <footer>
     	这里是域名信息
@@ -52,6 +73,12 @@ export default {
 		data() {
 			return {
 				nav_style: 'top: -5rem',
+				menuData: [
+					{id: 1, menu: '首页', className: 'gao-choose', route: '/index'},
+					{id: 2, menu: '学习', className: '', route: '/study'},
+					{id: 3, menu: '追番', className: '', route: '/watching'}
+				],
+				show_menu: false
 			}
 		},
 		created(){},
@@ -61,7 +88,22 @@ export default {
 		methods:{
 			handleScroll(){
 				let scroll = document.documentElement.scrollTop
-				scroll >100? this.nav_style = 'top: 0' : this.nav_style = 'top: -5rem;box-shadow: 0 0 0 #fff;'
+				if (scroll>100) {
+					this.nav_style = 'top: 0'
+				} else {
+					this.nav_style = 'top: -5rem;box-shadow: 0 0 0 #fff;'
+					this.show_menu = false
+				}
+				// scroll >100? this.nav_style = 'top: 0' : this.nav_style = 'top: -5rem;box-shadow: 0 0 0 #fff;'
+			},
+			// 导航按钮点击，控制菜单显示与否
+			controlMenu() {
+				this.show_menu = !this.show_menu
+			},
+			// 点击选中导航
+			change_color(index){
+				this.menuData.forEach(v=>{v.className = ''})
+				this.menuData[index].className = 'gao-choose'
 			}
 		}
 	}
@@ -87,7 +129,8 @@ export default {
 			.head-nav{
 				width: 100%;
 				height: 5rem;
-				background: #e8e8e8;
+				// background: #e8e8e8;
+				background: linear-gradient(#f2f2f2, #fff);
 				position: fixed;
 				top: 0;
 				transition: all .5s;
@@ -116,22 +159,41 @@ export default {
 					.gao-btn{
 						position: absolute;
 						right: 3rem;
-						width: 3.5rem;
-						height: 3rem;
-						border: 1px solid #ccc;
+						width: 3.2rem;
+						height: 2.8rem;
+						border: 1px solid #999;
 						border-radius: 5px;
-						transition: all 0;
+						transition: all .3s;
+						cursor: pointer;
 						span{
 							display: block;
-							width: 70%;
-							border-top: .7px solid red;
-							border-bottom: .7px solid red;
+							width: 60%;
+							border-top: .7px solid #999;
+							border-bottom: .7px solid #999;
 							margin: calc(0.7rem - 1.4px) auto 0;
 						}
 					}
+					.gao-btn:hover{
+							background: #f2f2f2;
+						}
 					.gao-nav{
 						position: absolute;
 						right: 3rem;
+						.gao-title-menu{
+							display: flex;
+							flex-direction: row;
+							.gao-title{
+								padding: 0 1.5rem;
+								cursor: pointer;
+								a{
+									text-decoration:none;
+									color: #000;
+								}
+							}
+							.gao-choose{
+								color: rgb(21, 116, 241);
+							}
+						}
 					}
 					@media only screen and (max-width: 782px) {
 						.gao-btn{
@@ -149,6 +211,40 @@ export default {
 							display: block;
 						}
 					}
+				}
+			}
+			.gao-menu{
+				width: 100%;
+				background:  linear-gradient(#fff, #f2f2f2);;
+				position: fixed;
+				top: calc(5rem - 1px);
+				border-top: 1px solid #ccc;
+				z-index: 999;
+				padding: 1rem 0;
+				transition: all 1s;
+				overflow: hidden;
+				box-shadow: 0px 5px 10px #d2d2d2;
+				.gao-title{
+					width: 100%;
+					padding: 0.8rem 0;
+					text-align: center;
+					border-bottom: 1px solid #e8e8e8;
+					cursor: pointer;
+					a{
+						text-decoration:none;
+						color: #000;
+					}
+				}
+				.gao-choose{
+					color: rgb(21, 116, 241);
+				}
+				.gao-title:last-child{
+					border-bottom: 0px solid #ccc;
+				}
+			}
+			@media only screen and (min-width: 782px) {
+				.gao-menu{
+					display: none !important;
 				}
 			}
 			footer{
