@@ -63,8 +63,8 @@ export default {
 				nav_style: 'top: -5rem',
 				menuData: [
 					{id: 1, menu: '首页', route: '/index'},
-					{id: 2, menu: '学习', route: '/study'},
-					{id: 3, menu: '追番', route: '/watching'}
+					// {id: 2, menu: '学习', route: '/study'},
+					// {id: 3, menu: '追番', route: '/watching'}
 				],
 				show_menu: false
 			}
